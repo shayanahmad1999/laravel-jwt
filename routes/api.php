@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
 //::::::::::: for custom create login :::::::::::::://
-Route::post('custom/register', [CustomAuthUserRoleController::class, 'register']);
+Route::post('custom/register', [CustomAuthUserRoleController::class, 'register'])->name('register');
 Route::post('custom/login', [CustomAuthUserRoleController::class, 'login'])->name('login');
 //::::::::::: for custom create login :::::::::::::://
 
