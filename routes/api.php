@@ -20,6 +20,7 @@ Route::get('/admin', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('custom/logout', [CustomAuthUserRoleController::class, 'logout'])->name('logout');
+    Route::get('/custom/posts', [PostController::class, 'index']);
 });
 
 
