@@ -13,7 +13,7 @@ class PostController extends ApiController
      */
     public function index()
     {
-        $posts = Post::whereId(auth()->user()->id)->get();
+        $posts = Post::where('created_by',auth()->user()->id)->get();
         return $this->successResponse($posts);
     }
 
