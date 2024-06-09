@@ -19,13 +19,13 @@ Route::get('/admin', function (Request $request) {
 })->middleware('auth:sanctum', 'is_admin');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('custom/logout', [CustomAuthUserRoleController::class, 'logout']);
+    Route::post('custom/logout', [CustomAuthUserRoleController::class, 'logout'])->name('logout');
 });
 
 
 //::::::::::: for custom create login :::::::::::::://
 Route::post('custom/register', [CustomAuthUserRoleController::class, 'register']);
-Route::post('custom/login', [CustomAuthUserRoleController::class, 'login']);
+Route::post('custom/login', [CustomAuthUserRoleController::class, 'login'])->name('login');
 //::::::::::: for custom create login :::::::::::::://
 
 
