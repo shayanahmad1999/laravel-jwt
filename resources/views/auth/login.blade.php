@@ -72,6 +72,7 @@
                         if (response.message == 'success') {
                             alert(response.message);
                             localStorage.setItem('token', response.data.token);
+                            document.cookie = `token=${response.data.token}; path=/;`;
                             window.location.href = '/dashboard';
                         } else {
                             var error = 'Error: ' + response.message;
