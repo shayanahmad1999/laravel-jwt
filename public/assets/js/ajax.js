@@ -1,3 +1,7 @@
+function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
 function logout(form) {
     let url = $(form).attr('action_url');
     let formData = $(form).serialize();
@@ -11,6 +15,8 @@ function logout(form) {
         },
         success: function (response) {
             if (response.message == 'Successfully logged out') {
+                localStorage.removeItem('token');
+                deleteCookie('token');
                 window.location.href = '/';
             } else {
                 alert('Logout failed');
